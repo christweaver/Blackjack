@@ -1,0 +1,109 @@
+//GET RANDOM NUMBERS
+function getRandom(){
+return Math.floor(Math.random() * 11)+1
+}
+
+let dealersHand;
+let playersHand;
+function startGame(){
+dealersHand=[getRandom(), getRandom()]
+playersHand=[getRandom(), getRandom()]}
+startGame()
+console.log(`Dealer first two cards: ${dealersHand}, player first to cards: ${playersHand}`)
+
+
+
+//ADDING DEALERS CARDS TOGETHER
+function addDealersCards(dealersHand){
+for (let i=0; i<dealersHand.length; i++) {
+    dealerstotal+=dealersHand[i]
+}
+return dealerstotal
+}
+let dealerstotal=0
+addDealersCards(dealersHand)
+console.log(` dealer starts with ${dealerstotal}`)
+
+//DEALER HAS TO HIT UNTIL TIL 17
+function stay() {
+for (let i=0; i<4; i++)  {
+
+dealersHand.push(getRandom(i))}
+  }
+
+let total=stay(dealerstotal)
+
+
+// ADDING DEALER FINAL CARDS
+function dealerFinal() {
+  for (let i=0; i<dealersHand.length; i++) {
+    finalCards+=dealersHand[i]
+   if (finalCards>=17) {break} }
+  
+   return finalCards
+}
+
+let finalCards=0
+dealerFinal(dealersHand)
+
+
+
+// DEALER OPTIONS
+function dealerOptions(){
+  if (dealerstotal>=17 && dealerstotal<21)
+      return console.log(`dealer has ${dealerstotal}`)
+  else if (dealerstotal===21) 
+  {return console.log("Dealer has blackjack!")} 
+  else if (finalCards===21)
+  {return console.log('dealer got blackjack')}
+  else if (finalCards<21) {return console.log(`dealer has ${finalCards}`)}
+  else if (finalCards>21) {return console.log('dealer busts!')}
+  else {return console.log(`dealer has ${dealerstotal} not 18`)}
+   
+}
+  dealerOptions()
+
+// ADDING PLAYERS CARDS TOGETHER
+  function addPlayersCards(playersHand){
+    for (let i=0; i<playersHand.length; i++) {
+        playerstotal+=playersHand[i]
+    }
+    return playerstotal
+    }
+    let playerstotal=0
+    addPlayersCards(playersHand)
+    console.log(`player starts with ${playerstotal}`)
+
+
+// HIT FUNCTION
+    function hit(){
+      playersHand.push(getRandom())
+    }
+    let playerhit=hit(playerstotal)
+    //console.log(playerhit)
+
+// PLAYERS FINAL CARDS
+    function playerFinal() {
+      for (let i=0; i<playersHand.length; i++) {
+        playerFinalCards+=playersHand[i]}
+      
+       return playerFinalCards
+    }
+    let playerFinalCards=0
+   let playerScore= playerFinal(playersHand)
+   console.log(`player currently has ${playerScore}`)
+
+
+  //  PLAYER OPTIONS
+   function playerOptions() {
+     if (playerstotal===21) {return console.log("You have blackjack!")}
+     else if (playerFinalCards>21) {return console.log("you busted")}
+   }
+   playerOptions()
+
+// END GAME
+   function endGame() {
+    
+   }
+
+   endGame()
